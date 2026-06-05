@@ -5,22 +5,20 @@
 var balancedStringSplit = function(s) {
     let str = s.split("")
     let count = 0
-    let balanced = 0
+    let Bcount = 0
     for(let i=0; i < str.length; i++) {
-        if(str[i] === 'R') {
-            count++
-            if(count === 0) {
-                balanced++
+        if(str[i] == 'R') {
+            ++count
+            if(count==0) {
+                Bcount++
             }
         }
-        else if(str[i] === 'L') {
-            count--
-            if(count === 0) {
-                balanced++
+        else {
+            --count
+            if(count==0) {
+                Bcount++
             }
         }
-        
     }
-    console.log(count)
-    return balanced
+    return Bcount
 };
