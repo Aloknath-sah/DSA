@@ -13,20 +13,21 @@ var maxFreqSum = function(s) {
             obj[str[i]] = 1
         }
     }
-    let vowel = ['a', 'e', 'i', 'o', 'u']
+    console.log(obj)
     let maxVow = 0
     let maxCons = 0
-    for(let i=0; i < str.length; i++) {
-        if(vowel.includes(str[i])) {
-            if(obj[str[i]] > maxVow) {
-                maxVow = obj[str[i]]
+    let vowels = ['a', 'e', 'i', 'o', 'u']
+    for(let i=0; i < s.length; i++) {
+        if(vowels.includes(s[i])) {
+            if(obj[s[i]] > maxVow) {
+                maxVow = obj[s[i]]
             }
         }
         else {
-            if(obj[str[i]] > maxCons) {
-                maxCons = obj[str[i]]
+            if(obj[s[i]] > maxCons) {
+                maxCons = obj[s[i]]
             }
         }
     }
-    return maxVow + maxCons
+    return maxVow+maxCons
 };
