@@ -9,9 +9,9 @@ var twoSum = function(nums, target) {
         obj[nums[i]] = i
     }
     for(let i=0; i < nums.length; i++) {
-        let pairToFind = target - nums[i]
-        if(pairToFind in obj && obj[pairToFind] !== i) {
-            return [i, obj[pairToFind]]
+        let diff = target - nums[i]
+        if(obj[diff] && obj[diff] !== i) {
+            return [i, obj[diff]]
         }
     }
 };
