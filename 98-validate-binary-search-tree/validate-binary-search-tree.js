@@ -11,15 +11,17 @@
  * @return {boolean}
  */
 var isValidBST = function(root) {
-    let validBstCheck = (curr, lo=null, hi=null) => {
+    let ans = true
+    let validBst = (curr, lo, hi) => {
         if(!curr) return true
-        if((lo !== null && curr.val <= lo) || (hi !== null && curr.val >= hi)) {
+        if((lo !== null && curr.val <= lo) || (hi !== null && curr.val >= hi) ) {
             return false
         }
-        let isLeftBst = validBstCheck(curr.left, lo, curr.val)
-        let isRightBst = validBstCheck(curr.right, curr.val, hi)
+        let leftTree = validBst(curr.left, lo, curr.val)
+        let rightTree = validBst(curr.right, curr.val, hi)
 
-        return isLeftBst && isRightBst
+        return leftTree && rightTree
     }
-    return validBstCheck(root)
+    ans = validBst(root, null, null)
+    return ans
 };
