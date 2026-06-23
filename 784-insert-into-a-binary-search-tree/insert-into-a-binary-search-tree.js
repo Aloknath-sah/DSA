@@ -12,14 +12,15 @@
  * @return {TreeNode}
  */
 var insertIntoBST = function(root, val) {
-    if(!root) return new TreeNode(val)
-
-    if(val < root.val) {
-        root.left = insertIntoBST(root.left, val)
+    let traversal = (curr, val) => {
+        if(!curr) return new TreeNode(val)
+        if(val < curr.val) {
+            curr.left = traversal(curr.left, val)
+        }
+        else  {
+            curr.right = traversal(curr.right, val)
+        }
+        return curr
     }
-    else {
-        root.right = insertIntoBST(root.right, val)
-    }
-
-    return root
+    return traversal(root, val)
 };
